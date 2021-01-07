@@ -36,6 +36,6 @@ class StoreIncome(models.Model):
     income_month = models.CharField(max_length=2)
     income = models.PositiveIntegerField()
     branch  = models.ForeignKey(Branch, on_delete=models.CASCADE)
-      
     def __str__(self):
         return str(self.income) 
+
