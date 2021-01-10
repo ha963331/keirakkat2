@@ -43,7 +43,7 @@ for i, store_income_dict in enumerate(store_income_json):
     income = store_income_dict['income']
     if income >= 2147483647: # 資料型態 不能超出 21億 (max=2^31 - 1)
         print(f'StoreIncome income={income} 超出過 2147483647')
-        income = 2147483647
+        income = 22147483
     branch_title = store_income_dict['branch.title']
     
     # filter出資料庫，所有 相同的 Branch 資料
