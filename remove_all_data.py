@@ -5,6 +5,18 @@ django.setup()
 from mainsite.models import Post, Branch, StoreIncome, FiveMountain
 #=============================================================================#
 #Post.objects.all().delete()
+posts = Post.objects.all()
+for i, post in enumerate(posts):
+    title = post.title
+    slug = post.slug
+    pub_date = post.pub_date
+    body = post.body
+
+    filter_posts = Post.objects.filter(title=title, slug=slug)
+    
+    if len(filter_posts) > 1:
+        for ipost in filter_posts[1:]:
+            ipost.delete()
 
 #=============================================================================#
 #Branch.objects.all().delete()
@@ -14,7 +26,7 @@ for i, store in enumerate(stores):
     title = store.title
     name = store.name
     
-    filter_stores = Branch.objects.filter(title=title, name=name)
+    filter_stores = Branch.objects.filter(title=title)
     
     if len(filter_stores) > 1:
         for istore in filter_stores[1:]:
@@ -42,10 +54,22 @@ for i, store_income in enumerate(data):
     # filter出資料庫，所有 相同的 StoreIncome 資料
     filter_store_incomes = StoreIncome.objects.filter(income_year=income_year, income_month=income_month, branch=store)
     
-    # 如果 沒有任何相同，則創建新的一筆資料
+    # 如果大於1間店，代表有重複，需刪除
     if len(filter_store_incomes) > 1:
+        # filter_store_incomes[1:] 代表 除了第1筆之後的 都刪除
         for istore_income in filter_store_incomes[1:]:
             istore_income.delete()
 
 #=============================================================================#
 #FiveMountain.objects.all().delete()
+
+five_mountains = FiveMountain.objects.all()
+for i, five_mountain in enumerate(five_mountains):
+    mountain_name = five_mountain.mountain_name
+    mountain_high = five_mountain.mountain_high
+        
+    filter_five_mountains = FiveMountain.objects.filter(mountain_name=mountain_name)
+    
+    if len(filter_five_mountains) > 1:
+        for ifive_mountain in filter_five_mountains[1:]:
+            ifive_mountain.delete()

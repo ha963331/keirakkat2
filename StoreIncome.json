@@ -1,1 +1,50 @@
-[{"income_year": "2020", "income_month": "11", "income": 100000, "branch.title": "Kitkat"}, {"income_year": "2020", "income_month": "11", "income": 3620000, "branch.title": "Jelly"}, {"income_year": "2020", "income_month": "11", "income": 60000, "branch.title": "Pie"}, {"income_year": "2020", "income_month": "10", "income": 9800000, "branch.title": "Kitkat"}, {"income_year": "2020", "income_month": "11", "income": 3550000, "branch.title": "Pudding"}, {"income_year": "2020", "income_month": "10", "income": 28000, "branch.title": "Jelly"}, {"income_year": "2020", "income_month": "10", "income": 689000, "branch.title": "Pie"}, {"income_year": "2020", "income_month": "11", "income": 876300, "branch.title": "Cake"}]
+[
+    {
+        "income_year": "2020",
+        "income_month": "11",
+        "income": 100000,
+        "branch.title": "Kitkat"
+    },
+    {
+        "income_year": "2020",
+        "income_month": "11",
+        "income": 3620000,
+        "branch.title": "Jelly"
+    },
+    {
+        "income_year": "2020",
+        "income_month": "11",
+        "income": 60000,
+        "branch.title": "Pie"
+    },
+    {
+        "income_year": "2020",
+        "income_month": "10",
+        "income": 9800000,
+        "branch.title": "Kitkat"
+    },
+    {
+        "income_year": "2020",
+        "income_month": "11",
+        "income": 3550000,
+        "branch.title": "Pudding"
+    },
+    {
+        "income_year": "2020",
+        "income_month": "10",
+        "income": 28000,
+        "branch.title": "Jelly"
+    },
+    {
+        "income_year": "2020",
+        "income_month": "10",
+        "income": 689000,
+        "branch.title": "Pie"
+    },
+    {
+        "income_year": "2020",
+        "income_month": "11",
+        "income": 876300,
+        "branch.title": "Cake"
+    }
+]
