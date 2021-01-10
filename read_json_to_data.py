@@ -44,8 +44,6 @@ for i, store_income_dict in enumerate(store_income_json[1:]):
     store = Branch.objects.get(title=branch_title)
     StoreIncome.objects.create(income_year=income_year, income_month=income_month, income=income, branch=store)
 
-    StoreIncome.objects.create(income_year=income_year, income_month=income_month, income=2200000000, branch=store)
-
 #store = Branch.objects.filter(title=branch_title)[0]    
 #創建另一個model
 
