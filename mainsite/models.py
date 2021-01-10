@@ -39,3 +39,7 @@ class StoreIncome(models.Model):
     def __str__(self):
         return str(self.income) 
 
+class FiveMountain(models.Model):
+    mountain_name = models.CharField(max_length=200)
+    mountain_high = models.PositiveIntegerField()
+

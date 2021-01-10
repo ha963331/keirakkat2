@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block title %}
+台灣五嶽
+{% endblock %}
+{% block titlemessage %}
+    <h1>台灣五嶽</h1>
+{% endblock %}
+<!--分隔線-->
+{% block content %}
+<h5>
+    <font face="monospace">
+        <font color="gray">
+    五嶽，是台灣最具代表性的五座高山，氣勢磅礡、雄霸一方。五嶽中有四座山的海拔高度都排名在百岳的前十以內，山頂擁有無敵展望與視野，
+    玉山主峰和雪山主峰的步道較為大眾化，較容易攀登，但想要攀登秀姑巒山及南湖大山則需要相當的體力及登山經歷。
+        </font>
+    </font>
+</h5>
+
+
+
+<center>        
+<!--分隔線-->
+    <table width=800>
+        <tr>
+            <td>
+                <canvas id="myChart" width="800" height="400"></canvas>
+            </td>
+        </tr>
+    </table>
+</center>
+
+
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [
+            {% for item in data %}
+                  '{{ item.mountain_name}}',
+            {% endfor %}
+        ],
+        datasets: [{
+            label: '{{title}}',
+            data: [
+                {% for item in data %}
+                    '{{ item.mountain_high }}',
+                {% endfor %}
+                ],
+
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+{% endblock %}     

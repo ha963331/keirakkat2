@@ -2,7 +2,7 @@ import os, django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mblog.settings') # 需對應 wsgi.py #cmd 顯示
 django.setup()
 # 更多操作請參考官方文檔: https://docs.djangoproject.com/en/3.1/topics/db/models/
-from mainsite.models import Post, Branch, StoreIncome
+from mainsite.models import Post, Branch, StoreIncome, FiveMountain
 #=============================================================================#
 # 添加一筆資料
 # post = Post.objects.create(title="文章標題", slug="px", body='文章內容')
@@ -38,4 +38,12 @@ print(f'\nStoreIncome class 內資料: {data}')
 for i, store_income in enumerate(data):
     print(f'\n第 {i+1} 筆 StoreIncome 資料')
     print(f'income_year: {store_income.income_year} income_month: {store_income.income_month} income: {store_income.income} branch: {store_income.branch}')
+print('\n')
+#=============================================================================#
+
+data = FiveMountain.objects.all()
+print(f'\nFiveMountain class 內資料: {data}')
+for i, five_mountain in enumerate(data):
+    print(f'\n第 {i+1} 筆 FiveMountain 資料')
+    print(f'mountain_name: {FiveMountain.mountain_name} mountain_high: {FiveMountain.mountain_high}')
 print('\n')

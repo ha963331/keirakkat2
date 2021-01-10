@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from mainsite.models import Post
 import random
 from datetime import datetime
-from mainsite.models import AccessInfo, Branch, StoreIncome
+from mainsite.models import AccessInfo, Branch, StoreIncome, FiveMountain
 
 def homepage(request):
     rec = AccessInfo()
@@ -12,6 +12,12 @@ def homepage(request):
     posts = Post.objects.all()
     now = datetime.now()
     return render(request, "index.html", locals())
+
+def mountain(request, mountain_high = 0):
+    now = datetime.now()
+    data = FiveMountain.objects.all()
+    title = '山高'
+    return render(request, "mountain.html", locals())
 
 def mychart(request, bid=0):
     now = datetime.now()

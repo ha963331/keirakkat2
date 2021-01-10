@@ -2,7 +2,7 @@ import os, django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mblog.settings') # 需對應 wsgi.py #轉成json檔
 django.setup()
 # 更多操作請參考官方文檔: https://docs.djangoproject.com/en/3.1/topics/db/models/
-from mainsite.models import Post, Branch, StoreIncome
+from mainsite.models import Post, Branch, StoreIncome, FiveMountain
 import json
 from django.core.serializers.json import DjangoJSONEncoder
 #=============================================================================#
@@ -53,3 +53,18 @@ print(f'{store_income_json}\n')
 
 with open('StoreIncome.json', 'w') as fp:
     fp.write(store_income_json)
+
+#=============================================================================#
+data = FiveMountain.objects.all()
+five_mountain_dict_list = []
+for five_mountain in data:
+    five_mountain_dict = {}
+    five_mountain_dict['mountain_name'] = five_mountain.mountain_name
+    five_mountain_dict['mountain_high'] = five_mountain.mountain_high
+    five_mountain_dict_list.append(five_mountain_dict)
+five_mountain_json = json.dumps(five_mountain_dict_list, cls=DjangoJSONEncoder)
+print(f'{five_mountain_dict_list}\n')
+print(f'{five_mountain_json}\n')
+
+with open('five_mountain.json', 'w') as fp:
+    fp.write(five_mountain_json)
